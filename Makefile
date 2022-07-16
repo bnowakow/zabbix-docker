@@ -1,7 +1,8 @@
 # https://unix.stackexchange.com/a/471113
 # %s/^[ ]\+/\t/g
 
-docker-compose-yaml-file := ./docker-compose_v3_ubuntu_mysql_latest.yaml
+#docker-compose-yaml-file := ./docker-compose_v3_ubuntu_mysql_latest.yaml
+docker-compose-yaml-file := ./docker-compose_v3_ubuntu_mysql_local.yaml
 
 start:
 	docker compose -f $(docker-compose-yaml-file) up -d 
@@ -24,5 +25,5 @@ console:
 	docker exec -it zabbix-docker-zabbix-web-nginx-mysql-1 bash
 
 build:
-	#docker-compose build
+	docker compose -f $(docker-compose-yaml-file) build
 
