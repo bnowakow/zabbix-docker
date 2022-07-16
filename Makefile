@@ -21,7 +21,7 @@ logs:
 	docker compose -f $(docker-compose-yaml-file) logs -f
 
 console:
-	#docker exec -it crashplan bash
+	docker exec -it zabbix-docker-zabbix-web-nginx-mysql-1 bash
 
 build:
 	#docker-compose build
