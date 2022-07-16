@@ -13,7 +13,7 @@ services:
    cache_from:
     - quay.io/centos/centos:stream8
    args:
-    BUILD_BASE_IMAGE: zabbix-build-base:centos-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-base:centos-local
   image: zabbix-build-mysql:centos-local
   depends_on:
    - zabbix-build-base
@@ -24,7 +24,7 @@ services:
    cache_from:
     - quay.io/centos/centos:stream8
    args:
-    BUILD_BASE_IMAGE: zabbix-build-base:centos-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-base:centos-local
   image: zabbix-build-sqlite3:centos-local
   profiles:
    - all
@@ -37,7 +37,7 @@ services:
    cache_from:
     - quay.io/centos/centos:stream8
    args:
-    BUILD_BASE_IMAGE: zabbix-build-mysql:centos-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-mysql:centos-local
   image: zabbix-server-mysql:centos-local
   ports:
    - "10051:10051"
@@ -108,7 +108,7 @@ services:
    cache_from:
     - quay.io/centos/centos:stream8
    args:
-    BUILD_BASE_IMAGE: zabbix-build-sqlite3:centos-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-sqlite3:centos-local
   image: zabbix-proxy-sqlite3:centos-local
   profiles:
    - all
@@ -164,7 +164,7 @@ services:
    cache_from:
     - quay.io/centos/centos:stream8
    args:
-    BUILD_BASE_IMAGE: zabbix-build-mysql:centos-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-mysql:centos-local
   image: zabbix-proxy-mysql:centos-local
   profiles:
    - all
@@ -230,7 +230,7 @@ services:
    cache_from:
     - quay.io/centos/centos:stream8
    args:
-    BUILD_BASE_IMAGE: zabbix-build-mysql:centos-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-mysql:centos-local
   image: zabbix-web-apache-mysql:centos-local
   profiles:
    - all
@@ -293,7 +293,7 @@ services:
    cache_from:
     - quay.io/centos/centos:stream8
    args:
-    BUILD_BASE_IMAGE: zabbix-build-mysql:centos-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-mysql:centos-local
   image: zabbix-web-nginx-mysql:centos-local
   ports:
    - "80:8080"
@@ -354,7 +354,7 @@ services:
    cache_from:
     - quay.io/centos/centos:stream8
    args:
-    BUILD_BASE_IMAGE: zabbix-build-mysql:centos-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-mysql:centos-local
   image: zabbix-agent:centos-local
   profiles:
    - full
@@ -402,7 +402,7 @@ services:
    cache_from:
     - quay.io/centos/centos:stream8
    args:
-    BUILD_BASE_IMAGE: zabbix-build-mysql:centos-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-mysql:centos-local
   image: zabbix-java-gateway:centos-local
   profiles:
    - full
@@ -472,7 +472,7 @@ services:
    cache_from:
     - quay.io/centos/centos:stream8
    args:
-    BUILD_BASE_IMAGE: zabbix-build-mysql:centos-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-mysql:centos-local
   image: zabbix-web-service:centos-local
   profiles:
    - full
