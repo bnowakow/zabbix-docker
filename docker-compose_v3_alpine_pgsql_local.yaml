@@ -13,7 +13,7 @@ services:
    cache_from:
     - alpine:3.16
    args:
-    BUILD_BASE_IMAGE: zabbix-build-base:alpine-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-base:alpine-local
   image: zabbix-build-pgsql:alpine-local
   depends_on:
    - zabbix-build-base
@@ -24,7 +24,7 @@ services:
    cache_from:
     - alpine:3.16
    args:
-    BUILD_BASE_IMAGE: zabbix-build-base:alpine-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-base:alpine-local
   image: zabbix-build-mysql:alpine-local
   profiles:
    - all
@@ -37,7 +37,7 @@ services:
    cache_from:
     - alpine:3.16
    args:
-    BUILD_BASE_IMAGE: zabbix-build-base:alpine-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-base:alpine-local
   image: zabbix-build-sqlite3:alpine-local
   profiles:
    - all
@@ -50,7 +50,7 @@ services:
    cache_from:
     - alpine:3.16
    args:
-    BUILD_BASE_IMAGE: zabbix-build-pgsql:alpine-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-pgsql:alpine-local
   image: zabbix-server-pgsql:alpine-local
   ports:
    - "10051:10051"
@@ -120,7 +120,7 @@ services:
    cache_from:
     - alpine:3.16
    args:
-    BUILD_BASE_IMAGE: zabbix-build-sqlite3:alpine-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-sqlite3:alpine-local
   image: zabbix-proxy-sqlite3:alpine-local
   profiles:
    - all
@@ -176,7 +176,7 @@ services:
    cache_from:
     - alpine:3.16
    args:
-    BUILD_BASE_IMAGE: zabbix-build-mysql:alpine-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-mysql:alpine-local
   image: zabbix-proxy-mysql:alpine-local
   profiles:
    - all
@@ -239,7 +239,7 @@ services:
    cache_from:
     - alpine:3.16
    args:
-    BUILD_BASE_IMAGE: zabbix-build-pgsql:alpine-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-pgsql:alpine-local
   image: zabbix-web-apache-pgsql:alpine-local
   profiles:
    - all
@@ -302,7 +302,7 @@ services:
    cache_from:
     - alpine:3.16
    args:
-    BUILD_BASE_IMAGE: zabbix-build-pgsql:alpine-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-pgsql:alpine-local
   image: zabbix-web-nginx-pgsql:alpine-local
   ports:
    - "80:8080"
@@ -363,7 +363,7 @@ services:
    cache_from:
     - alpine:3.16
    args:
-    BUILD_BASE_IMAGE: zabbix-build-pgsql:alpine-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-pgsql:alpine-local
   image: zabbix-agent:alpine-local
   profiles:
    - full
@@ -411,7 +411,7 @@ services:
    cache_from:
     - alpine:3.16
    args:
-    BUILD_BASE_IMAGE: zabbix-build-pgsql:alpine-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-pgsql:alpine-local
   image: zabbix-java-gateway:alpine-local
   profiles:
    - full
@@ -481,7 +481,7 @@ services:
    cache_from:
     - alpine:3.16
    args:
-    BUILD_BASE_IMAGE: zabbix-build-pgsql:alpine-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-pgsql:alpine-local
   image: zabbix-web-service:alpine-local
   profiles:
    - full

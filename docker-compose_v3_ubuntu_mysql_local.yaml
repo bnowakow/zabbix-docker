@@ -13,7 +13,7 @@ services:
    cache_from:
     - ubuntu:jammy
    args:
-    BUILD_BASE_IMAGE: zabbix-build-base:ubuntu-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-base:ubuntu-local
   image: zabbix-build-mysql:ubuntu-local
   depends_on:
    - zabbix-build-base
@@ -24,7 +24,7 @@ services:
    cache_from:
     - ubuntu:jammy
    args:
-    BUILD_BASE_IMAGE: zabbix-build-base:ubuntu-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-base:ubuntu-local
   image: zabbix-build-sqlite3:ubuntu-local
   profiles:
    - all
@@ -37,7 +37,7 @@ services:
    cache_from:
     - ubuntu:jammy
    args:
-    BUILD_BASE_IMAGE: zabbix-build-mysql:ubuntu-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-mysql:ubuntu-local
   image: zabbix-server-mysql:ubuntu-local
   ports:
    - "10051:10051"
@@ -108,7 +108,7 @@ services:
    cache_from:
     - ubuntu:jammy
    args:
-    BUILD_BASE_IMAGE: zabbix-build-sqlite3:ubuntu-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-sqlite3:ubuntu-local
   image: zabbix-proxy-sqlite3:ubuntu-local
   profiles:
    - all
@@ -163,7 +163,7 @@ services:
    cache_from:
     - ubuntu:jammy
    args:
-    BUILD_BASE_IMAGE: zabbix-build-mysql:ubuntu-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-mysql:ubuntu-local
   image: zabbix-proxy-mysql:ubuntu-local
   profiles:
    - all
@@ -228,7 +228,7 @@ services:
    cache_from:
     - ubuntu:jammy
    args:
-    BUILD_BASE_IMAGE: zabbix-build-mysql:ubuntu-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-mysql:ubuntu-local
   image: zabbix-web-apache-mysql:ubuntu-local
   profiles:
    - all
@@ -290,7 +290,7 @@ services:
    cache_from:
     - ubuntu:jammy
    args:
-    BUILD_BASE_IMAGE: zabbix-build-mysql:ubuntu-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-mysql:ubuntu-local
   image: zabbix-web-nginx-mysql:ubuntu-local
   ports:
    - "80:8080"
@@ -350,7 +350,7 @@ services:
    cache_from:
     - ubuntu:jammy
    args:
-    BUILD_BASE_IMAGE: zabbix-build-mysql:ubuntu-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-mysql:ubuntu-local
   image: zabbix-agent:ubuntu-local
   profiles:
    - full
@@ -397,7 +397,7 @@ services:
    cache_from:
     - ubuntu:jammy
    args:
-    BUILD_BASE_IMAGE: zabbix-build-mysql:ubuntu-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-mysql:ubuntu-local
   image: zabbix-java-gateway:ubuntu-local
   profiles:
    - full
@@ -467,7 +467,7 @@ services:
    cache_from:
     - ubuntu:jammy
    args:
-    BUILD_BASE_IMAGE: zabbix-build-mysql:ubuntu-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-mysql:ubuntu-local
   image: zabbix-web-service:ubuntu-local
   profiles:
    - full

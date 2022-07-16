@@ -13,7 +13,7 @@ services:
    cache_from:
     - oraclelinux:8-slim
    args:
-    BUILD_BASE_IMAGE: zabbix-build-base:ol-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-base:ol-local
   image: zabbix-build-pgsql:ol-local
   depends_on:
    - zabbix-build-base
@@ -24,7 +24,7 @@ services:
    cache_from:
     - oraclelinux:8-slim
    args:
-    BUILD_BASE_IMAGE: zabbix-build-base:ol-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-base:ol-local
   image: zabbix-build-mysql:ol-local
   profiles:
    - all
@@ -37,7 +37,7 @@ services:
    cache_from:
     - oraclelinux:8-slim
    args:
-    BUILD_BASE_IMAGE: zabbix-build-base:ol-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-base:ol-local
   image: zabbix-build-sqlite3:ol-local
   profiles:
    - all
@@ -50,7 +50,7 @@ services:
    cache_from:
     - oraclelinux:8-slim
    args:
-    BUILD_BASE_IMAGE: zabbix-build-pgsql:ol-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-pgsql:ol-local
   image: zabbix-server-pgsql:ol-local
   ports:
    - "10051:10051"
@@ -120,7 +120,7 @@ services:
    cache_from:
     - oraclelinux:8-slim
    args:
-    BUILD_BASE_IMAGE: zabbix-build-sqlite3:ol-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-sqlite3:ol-local
   image: zabbix-proxy-sqlite3:ol-local
   profiles:
    - all
@@ -176,7 +176,7 @@ services:
    cache_from:
     - oraclelinux:8-slim
    args:
-    BUILD_BASE_IMAGE: zabbix-build-mysql:ol-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-mysql:ol-local
   image: zabbix-proxy-mysql:ol-local
   profiles:
    - all
@@ -239,7 +239,7 @@ services:
    cache_from:
     - oraclelinux:8-slim
    args:
-    BUILD_BASE_IMAGE: zabbix-build-pgsql:ol-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-pgsql:ol-local
   image: zabbix-web-apache-pgsql:ol-local
   profiles:
    - all
@@ -302,7 +302,7 @@ services:
    cache_from:
     - oraclelinux:8-slim
    args:
-    BUILD_BASE_IMAGE: zabbix-build-pgsql:ol-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-pgsql:ol-local
   image: zabbix-web-nginx-pgsql:ol-local
   ports:
    - "80:8080"
@@ -363,7 +363,7 @@ services:
    cache_from:
     - oraclelinux:8-slim
    args:
-    BUILD_BASE_IMAGE: zabbix-build-pgsql:ol-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-pgsql:ol-local
   image: zabbix-agent:ol-local
   profiles:
    - full
@@ -411,7 +411,7 @@ services:
    cache_from:
     - oraclelinux:8-slim
    args:
-    BUILD_BASE_IMAGE: zabbix-build-pgsql:ol-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-pgsql:ol-local
   image: zabbix-java-gateway:ol-local
   profiles:
    - full
@@ -481,7 +481,7 @@ services:
    cache_from:
     - oraclelinux:8-slim
    args:
-    BUILD_BASE_IMAGE: zabbix-build-pgsql:ol-local
+    BUILD_BASE_IMAGE: zabbix/zabbix-build-pgsql:ol-local
   image: zabbix-web-service:ol-local
   profiles:
    - full
