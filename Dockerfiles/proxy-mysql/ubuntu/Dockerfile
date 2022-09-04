@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 ARG MAJOR_VERSION=6.2
-ARG ZBX_VERSION=${MAJOR_VERSION}.2
-ARG BUILD_BASE_IMAGE=zabbix-build-mysql:ubuntu-${ZBX_VERSION}
+ARG ZBX_VERSION=${MAJOR_VERSION}.0
+ARG BUILD_BASE_IMAGE=zabbix/zabbix-build-mysql:ubuntu-${ZBX_VERSION}
 ARG ZBX_SOURCES=https://git.zabbix.com/scm/zbx/zabbix.git
 
 FROM ${BUILD_BASE_IMAGE} as builder
@@ -37,8 +37,6 @@ COPY --from=builder ["/tmp/zabbix-${ZBX_VERSION}/database/mysql/create_proxy.sql
 RUN set -eux && \
     echo "#!/bin/sh\nexit 101" > /usr/sbin/policy-rc.d && \
     INSTALL_PKGS="tini \
-            traceroute \
-            nmap \
             ca-certificates \
             fping \
             libcurl4 \

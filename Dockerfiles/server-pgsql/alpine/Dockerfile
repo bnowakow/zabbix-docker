@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 ARG MAJOR_VERSION=6.2
-ARG ZBX_VERSION=${MAJOR_VERSION}.2
-ARG BUILD_BASE_IMAGE=zabbix-build-pgsql:alpine-${ZBX_VERSION}
+ARG ZBX_VERSION=${MAJOR_VERSION}.0
+ARG BUILD_BASE_IMAGE=zabbix/zabbix-build-pgsql:alpine-${ZBX_VERSION}
 
 FROM ${BUILD_BASE_IMAGE} as builder
 
@@ -37,8 +37,6 @@ COPY --from=builder ["/tmp/zabbix-${ZBX_VERSION}/database/postgresql/timescaledb
 RUN set -eux && \
     INSTALL_PKGS="bash \
             tini \
-            traceroute \
-            nmap \
             fping \
             tzdata \
             iputils \
@@ -75,8 +73,6 @@ RUN set -eux && \
     mkdir -p /etc/zabbix && \
     mkdir -p /var/lib/zabbix && \
     mkdir -p /usr/lib/zabbix/alertscripts && \
-    mkdir -p /usr/lib/zabbix/dbscripts && \
-    mkdir -p /var/lib/zabbix/dbscripts && \
     mkdir -p /var/lib/zabbix/enc && \
     mkdir -p /var/lib/zabbix/export && \
     mkdir -p /usr/lib/zabbix/externalscripts && \

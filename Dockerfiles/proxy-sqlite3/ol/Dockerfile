@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 ARG MAJOR_VERSION=6.2
-ARG ZBX_VERSION=${MAJOR_VERSION}.2
-ARG BUILD_BASE_IMAGE=zabbix-build-sqlite3:ol-${ZBX_VERSION}
+ARG ZBX_VERSION=${MAJOR_VERSION}.0
+ARG BUILD_BASE_IMAGE=zabbix/zabbix-build-sqlite3:ol-${ZBX_VERSION}
 
 FROM ${BUILD_BASE_IMAGE} as builder
 
@@ -36,8 +36,6 @@ COPY ["conf/etc/yum.repos.d/oracle-epel-ol8.repo", "/etc/yum.repos.d/oracle-epel
 RUN set -eux && \
     INSTALL_PKGS="libevent \
             tini \
-            traceroute \
-            nmap \
             libssh \
             fping \
             file-libs \

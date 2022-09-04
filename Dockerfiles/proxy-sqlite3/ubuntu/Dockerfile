@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 ARG MAJOR_VERSION=6.2
-ARG ZBX_VERSION=${MAJOR_VERSION}.2
-ARG BUILD_BASE_IMAGE=zabbix-build-sqlite3:ubuntu-${ZBX_VERSION}
+ARG ZBX_VERSION=${MAJOR_VERSION}.0
+ARG BUILD_BASE_IMAGE=zabbix/zabbix-build-sqlite3:ubuntu-${ZBX_VERSION}
 
 FROM ${BUILD_BASE_IMAGE} as builder
 
@@ -36,8 +36,6 @@ RUN set -eux && \
     echo "#!/bin/sh\nexit 101" > /usr/sbin/policy-rc.d && \
     INSTALL_PKGS="bash \
             tini \
-            traceroute \
-            nmap \
             ca-certificates \
             fping \
             libcurl4 \
