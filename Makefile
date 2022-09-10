@@ -25,6 +25,8 @@ console:
 	docker exec -it zabbix-docker-zabbix-web-nginx-mysql-1 bash
 
 build:
-	#for dir in `find . -name ubuntu`; do cd $dir; ./build.sh; cd ~/code/zabbix-docker; done
-	docker compose -f $(docker-compose-yaml-file) build
+	#docker compose -f $(docker-compose-yaml-file) build
+	# compose version fails so using below as workaround
+	for dir in `find . -name ubuntu`; do cd $$dir; ./build.sh; cd ~/code/zabbix-docker; done
+	./retag-latest-to-local.sh
 
