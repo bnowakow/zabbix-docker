@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 ARG MAJOR_VERSION=6.2
-ARG RELEASE=0
-ARG ZBX_VERSION=${MAJOR_VERSION}.0
+ARG RELEASE=2
+ARG ZBX_VERSION=${MAJOR_VERSION}.2
 ARG BUILD_BASE_IMAGE=zabbix/zabbix-build-mysql:rhel-${ZBX_VERSION}
 
 FROM ${BUILD_BASE_IMAGE} as builder
@@ -55,6 +55,8 @@ COPY --from=builder ["/tmp/zabbix-${ZBX_VERSION}/database/mysql/create_proxy.sql
 RUN set -eux && \
     INSTALL_PKGS="bash \
             tini \
+            traceroute \
+            nmap \
             shadow-utils \
             fping \
             iputils \

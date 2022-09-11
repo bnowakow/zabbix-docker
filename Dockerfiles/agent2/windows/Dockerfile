@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 # escape=`
 ARG MAJOR_VERSION=6.2
-ARG ZBX_VERSION=${MAJOR_VERSION}.0
+ARG ZBX_VERSION=${MAJOR_VERSION}.2
 ARG BUILD_BASE_IMAGE=zabbix/zabbix-build-agent:ltsc2022-agent2-${ZBX_VERSION}
 
 ARG BASE_IMAGE=mcr.microsoft.com/powershell:lts-nanoserver-ltsc2022
@@ -46,7 +46,8 @@ RUN Set-Location -Path $env:SystemDrive\.; `
     New-Item -ItemType directory -Path $env:ZBX_HOME\modules | Out-Null; `
     New-Item -ItemType directory -Path $env:ZBX_HOME\buffer | Out-Null; `
     `
-    net user /add zabbix; `
+	net accounts /MaxPWAge:unlimited; `
+    net user /add zabbix /expire:never /passwordreq:no; `
     $acl = Get-Acl -Path $env:ZBX_HOME; `
     $ace = New-Object Security.AccessControl.FileSystemAccessRule ('zabbix', 'Modify', 'ContainerInherit, ObjectInherit', 'InheritOnly', 'Allow'); `
     $acl.AddAccessRule($ace); `
