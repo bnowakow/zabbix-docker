@@ -2,7 +2,7 @@
 ARG MAJOR_VERSION=6.2
 ARG RELEASE=2
 ARG ZBX_VERSION=${MAJOR_VERSION}.2
-ARG BUILD_BASE_IMAGE=zabbix-build-mysql:rhel-${ZBX_VERSION}
+ARG BUILD_BASE_IMAGE=bnowakow/zabbix-build-mysql:rhel-${ZBX_VERSION}
 
 FROM ${BUILD_BASE_IMAGE} as builder
 
