@@ -293,8 +293,8 @@ services:
     BUILD_BASE_IMAGE: zabbix-build-mysql:ubuntu-local
   image: bnowakow/zabbix-web-nginx-mysql:ubuntu-local
   ports:
-   - "80:8080"
-   - "443:8443"
+   - "8080:8080"
+   - "8443:8443"
   volumes:
    - /etc/localtime:/etc/localtime:ro
    - ./zbx_env/etc/ssl/nginx:/etc/ssl/nginx:ro
