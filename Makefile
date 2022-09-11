@@ -27,6 +27,6 @@ console:
 build:
 	#docker compose -f $(docker-compose-yaml-file) build
 	# compose version fails so using below as workaround
-	for dir in `find . -name ubuntu`; do cd $$dir; ./build.sh; cd ~/code/zabbix-docker; done
+	for dir in `find . -name ubuntu | grep -v pgsql | grep -v agent2`; do cd $$dir; echo $$dir;./build.sh; cd ../../../; done
 	./retag-latest-to-local.sh
 
