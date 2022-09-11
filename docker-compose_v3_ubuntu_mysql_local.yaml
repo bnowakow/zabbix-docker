@@ -5,7 +5,7 @@ services:
    context: ./Dockerfiles/build-base/ubuntu
    cache_from:
     - ubuntu:jammy
-  image: zabbix-build-base:ubuntu-local
+  image: bnowakow/zabbix-build-base:ubuntu-local
 
  zabbix-build-mysql:
   build:
@@ -14,7 +14,7 @@ services:
     - ubuntu:jammy
    args:
     BUILD_BASE_IMAGE: zabbix-build-base:ubuntu-local
-  image: zabbix-build-mysql:ubuntu-local
+  image: bnowakow/zabbix-build-mysql:ubuntu-local
   depends_on:
    - zabbix-build-base
 
@@ -25,7 +25,7 @@ services:
     - ubuntu:jammy
    args:
     BUILD_BASE_IMAGE: zabbix-build-base:ubuntu-local
-  image: zabbix-build-sqlite3:ubuntu-local
+  image: bnowakow/zabbix-build-sqlite3:ubuntu-local
   profiles:
    - all
   depends_on:
@@ -38,7 +38,7 @@ services:
     - ubuntu:jammy
    args:
     BUILD_BASE_IMAGE: zabbix-build-mysql:ubuntu-local
-  image: zabbix-server-mysql:ubuntu-local
+  image: bnowakow/zabbix-server-mysql:ubuntu-local
   ports:
    - "10051:10051"
   volumes:
@@ -109,7 +109,7 @@ services:
     - ubuntu:jammy
    args:
     BUILD_BASE_IMAGE: zabbix-build-sqlite3:ubuntu-local
-  image: zabbix-proxy-sqlite3:ubuntu-local
+  image: bnowakow/zabbix-proxy-sqlite3:ubuntu-local
   profiles:
    - all
   ports:
@@ -164,7 +164,7 @@ services:
     - ubuntu:jammy
    args:
     BUILD_BASE_IMAGE: zabbix-build-mysql:ubuntu-local
-  image: zabbix-proxy-mysql:ubuntu-local
+  image: bnowakow/zabbix-proxy-mysql:ubuntu-local
   profiles:
    - all
   ports:
@@ -229,7 +229,7 @@ services:
     - ubuntu:jammy
    args:
     BUILD_BASE_IMAGE: zabbix-build-mysql:ubuntu-local
-  image: zabbix-web-apache-mysql:ubuntu-local
+  image: bnowakow/zabbix-web-apache-mysql:ubuntu-local
   profiles:
    - all
   ports:
@@ -291,7 +291,7 @@ services:
     - ubuntu:jammy
    args:
     BUILD_BASE_IMAGE: zabbix-build-mysql:ubuntu-local
-  image: zabbix-web-nginx-mysql:ubuntu-local
+  image: bnowakow/zabbix-web-nginx-mysql:ubuntu-local
   ports:
    - "80:8080"
    - "443:8443"
@@ -351,7 +351,7 @@ services:
     - ubuntu:jammy
    args:
     BUILD_BASE_IMAGE: zabbix-build-mysql:ubuntu-local
-  image: zabbix-agent:ubuntu-local
+  image: bnowakow/zabbix-agent:ubuntu-local
   profiles:
    - full
    - all
@@ -398,7 +398,7 @@ services:
     - ubuntu:jammy
    args:
     BUILD_BASE_IMAGE: zabbix-build-mysql:ubuntu-local
-  image: zabbix-java-gateway:ubuntu-local
+  image: bnowakow/zabbix-java-gateway:ubuntu-local
   profiles:
    - full
    - all
@@ -433,7 +433,7 @@ services:
    context: ./Dockerfiles/snmptraps/ubuntu
    cache_from:
     - ubuntu:jammy
-  image: zabbix-snmptraps:ubuntu-local
+  image: bnowakow/zabbix-snmptraps:ubuntu-local
   profiles:
    - full
    - all
@@ -468,7 +468,7 @@ services:
     - ubuntu:jammy
    args:
     BUILD_BASE_IMAGE: zabbix-build-mysql:ubuntu-local
-  image: zabbix-web-service:ubuntu-local
+  image: bnowakow/zabbix-web-service:ubuntu-local
   profiles:
    - full
    - all
