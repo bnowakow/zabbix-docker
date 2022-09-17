@@ -234,7 +234,7 @@ services:
    - all
   ports:
    - "8081:8080"
-   - "8443:8443"
+   - "8444:8443"
   volumes:
    - /etc/localtime:/etc/localtime:ro
    - ./zbx_env/etc/ssl/apache2:/etc/ssl/apache2:ro

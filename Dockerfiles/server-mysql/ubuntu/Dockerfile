@@ -97,6 +97,11 @@ RUN set -eux && \
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/*
 
+#bnowakow
+RUN apt-get update
+RUN apt-get install sudo -y
+#\bnowakow
+
 EXPOSE 10051/TCP
 
 WORKDIR /var/lib/zabbix

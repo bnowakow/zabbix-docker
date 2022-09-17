@@ -7,8 +7,7 @@ docker-compose-yaml-file := ./docker-compose_v3_ubuntu_mysql_local.yaml
 zabbix-version := 6.2.2
 
 start:
-	docker compose -f $(docker-compose-yaml-file) up -d 
-	docker compose -f $(docker-compose-yaml-file) logs -f
+	docker compose -f $(docker-compose-yaml-file) --profile all up -d 
 
 stop:
 	docker compose -f $(docker-compose-yaml-file) stop

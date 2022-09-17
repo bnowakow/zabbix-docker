@@ -124,6 +124,11 @@ RUN set -eux && \
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/*
 
+#bnowakow
+RUN apt-get update
+RUN apt-get install iputils-ping bind9-host -y
+#\bnowakow
+
 EXPOSE 8080/TCP 8443/TCP
 
 WORKDIR /usr/share/zabbix
