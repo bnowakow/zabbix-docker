@@ -6,6 +6,8 @@ services:
    cache_from:
     - ubuntu:jammy
   image: bnowakow/zabbix-build-base:ubuntu-local
+  profiles:
+   - server
 
  zabbix-build-mysql:
   build:
@@ -15,6 +17,8 @@ services:
    args:
     BUILD_BASE_IMAGE: zabbix-build-base:ubuntu-local
   image: bnowakow/zabbix-build-mysql:ubuntu-local
+  profiles:
+   - server
   depends_on:
    - zabbix-build-base
 
@@ -39,6 +43,8 @@ services:
    args:
     BUILD_BASE_IMAGE: zabbix-build-mysql:ubuntu-local
   image: bnowakow/zabbix-server-mysql:ubuntu-local
+  profiles:
+   - server
   ports:
    - "10051:10051"
   volumes:
@@ -292,6 +298,8 @@ services:
    args:
     BUILD_BASE_IMAGE: zabbix-build-mysql:ubuntu-local
   image: bnowakow/zabbix-web-nginx-mysql:ubuntu-local
+  profiles:
+   - server
   ports:
    - "8080:8080"
    - "8443:8443"
@@ -355,6 +363,8 @@ services:
   profiles:
    - full
    - all
+   - server
+   - agent
   ports:
    - "10050:10050"
   volumes:
@@ -504,6 +514,8 @@ services:
 
  mysql-server:
   image: mysql:8.0-oracle
+  profiles:
+   - server
   command:
    - mysqld
    - --character-set-server=utf8mb4
@@ -536,6 +548,9 @@ services:
   image: busybox
   volumes:
    - ./zbx_env/var/lib/mysql:/var/lib/mysql:rw
+  profiles:
+    - server
+
 
 # elasticsearch:
 #  image: elasticsearch
