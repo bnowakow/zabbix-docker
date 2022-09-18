@@ -43,7 +43,7 @@ build:
 	docker push bnowakow/zabbix-build-mysql:ubuntu-$(zabbix-version)
 	for dir in `find . -name ubuntu | grep -v pgsql | grep -v agent2 | grep -v build | grep -v base`; do cd $$dir; echo $$dir;./build.sh; cd ../../../; done
 	./retag-latest-to-local.sh
-	for image in `docker images | grep ubuntu-local | grep bnowakow | awk '{print $1}'`; do docker push $$image:ubuntu-local; done
+	for image in `docker images | grep ubuntu-local | grep bnowakow | awk '{print $1}'`; do docker push "$$image"':ubuntu-local'; done
 
 delete-images:
 	docker images | grep zabbix | awk '{print $3}' | xargs docker rmi -f
