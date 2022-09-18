@@ -25,8 +25,8 @@ restart:
 logs:
 	docker compose -f $(docker-compose-yaml-file) logs -f
 
-console:
-	docker exec -it zabbix-docker-zabbix-web-nginx-mysql-1 bash
+console-server:
+	docker exec -it zabbix-docker-zabbix-server-1 bash
 
 build:
 	#docker compose -f $(docker-compose-yaml-file) build
