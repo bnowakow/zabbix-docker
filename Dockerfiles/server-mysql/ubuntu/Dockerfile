@@ -100,6 +100,9 @@ RUN set -eux && \
 #bnowakow
 RUN apt-get update
 RUN apt-get install sudo -y
+RUN chmod +w /etc/sudoers
+RUN echo "zabbix    ALL=(ALL) NOPASSWD: /usr/bin/nmap" >> /etc/sudoers
+RUN chmod -w /etc/sudoers
 #\bnowakow
 
 EXPOSE 10051/TCP
