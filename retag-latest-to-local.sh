@@ -7,4 +7,4 @@ for image_id in `docker images | grep ubuntu-latest | grep '^zabbix' | awk '{pri
 done
 
 docker images | grep ubuntu-l
-
+ 
