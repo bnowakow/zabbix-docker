@@ -28,6 +28,9 @@ logs:
 console-server:
 	docker exec -it zabbix-docker-zabbix-server-1 bash
 
+console-agent:
+	docker exec -it zabbix-docker-zabbix-agent-1 bash
+
 build:
 	#docker compose -f $(docker-compose-yaml-file) build
 	# compose version fails so using below as workaround
