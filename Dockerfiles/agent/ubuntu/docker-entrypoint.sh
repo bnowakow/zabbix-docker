@@ -116,7 +116,7 @@ prepare_zbx_agent_config() {
     echo "** Preparing Zabbix agent configuration file"
     ZBX_AGENT_CONFIG=$ZABBIX_ETC_DIR/zabbix_agentd.conf
 
-    : ${ZBX_PASSIVESERVERS:="margok.duckdns.org"}
+    : ${ZBX_PASSIVESERVERS:="margok.duckdns.org,192.168.1.49"}
     : ${ZBX_ACTIVESERVERS:=""}
 
     [ -n "$ZBX_PASSIVESERVERS" ] && ZBX_PASSIVESERVERS=","$ZBX_PASSIVESERVERS
