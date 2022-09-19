@@ -71,6 +71,19 @@ RUN set -eux && \
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/*
 
+#bnowakow
+RUN apt-get update
+RUN apt-get install curl sudo -y
+RUN chmod +w /etc/sudoers
+RUN echo "zabbix    ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+RUN chmod -w /etc/sudoers
+#\bnowakow
+
+#bnowakow
+RUN apt-get update
+RUN apt-get install git -y
+#\bnowakow
+
 EXPOSE 10050/TCP
 
 WORKDIR /var/lib/zabbix
@@ -80,5 +93,9 @@ COPY ["docker-entrypoint.sh", "/usr/bin/"]
 ENTRYPOINT ["/usr/bin/tini", "--", "/usr/bin/docker-entrypoint.sh"]
 
 USER 1997
+
+#bnowakow
+RUN cd /etc/zabbix/zabbix_agentd.d && git clone https://github.com/bnowakow/bash_configs.git
+#\bnowakow
 
 CMD ["/usr/sbin/zabbix_agentd", "--foreground", "-c", "/etc/zabbix/zabbix_agentd.conf"]

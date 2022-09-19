@@ -118,6 +118,7 @@ prepare_zbx_agent_config() {
 
     : ${ZBX_PASSIVESERVERS:="margok.duckdns.org,192.168.1.49"}
     : ${ZBX_ACTIVESERVERS:=""}
+    : ${ZBX_ALLOWKEY:="system.run[*]"}
 
     [ -n "$ZBX_PASSIVESERVERS" ] && ZBX_PASSIVESERVERS=","$ZBX_PASSIVESERVERS
 
@@ -215,6 +216,11 @@ fi
 if [ "$1" == '/usr/sbin/zabbix_agentd' ]; then
     prepare_agent
 fi
+
+#bnowakow
+cd /etc/zabbix/zabbix_agentd.d/bash_configs
+git pull
+#\bnowakow
 
 exec "$@"
 
