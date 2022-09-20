@@ -389,6 +389,9 @@ services:
    mode: global
   env_file:
    - ./env_vars/.env_agent
+  secrets:
+   - env_agent_ssh_key_ed25519
+   - env_agent_ssh_key_ed25519.pub
   privileged: true
   pid: "host"
   depends_on:
@@ -612,3 +615,7 @@ secrets:
 #    file: ./env_vars/.DB_CERT_FILE
 #  server-key.pem:
 #    file: ./env_vars/.DB_KEY_FILE
+  env_agent_ssh_key_ed25519:
+     file: ./env_vars/.env_agent_ssh_key_ed25519
+  env_agent_ssh_key_ed25519.pub:
+     file: ./env_vars/.env_agent_ssh_key_ed25519.pub

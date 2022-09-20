@@ -222,6 +222,13 @@ cd /etc/zabbix/zabbix_agentd.d/bash_configs
 git pull
 cd ..
 find . -name 'zabbix*.conf' | xargs -I{} cp {} .
+
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+cd ~/.ssh
+cp /run/secrets/env_agent_ssh_key_ed25519 id_ed25519
+cp /run/secrets/env_agent_ssh_key_ed25519.pub id_ed25519.pub
+ssh-keyscan -H ovh.bnowakowski.pl > known_hosts
 #\bnowakow
 
 exec "$@"
