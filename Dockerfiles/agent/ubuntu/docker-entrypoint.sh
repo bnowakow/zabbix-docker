@@ -119,6 +119,7 @@ prepare_zbx_agent_config() {
     : ${ZBX_PASSIVESERVERS:="margok.duckdns.org,192.168.1.49"}
     : ${ZBX_ACTIVESERVERS:=""}
     : ${ZBX_ALLOWKEY:="system.run[*]"}
+    : ${ZBX_TIMEOUT:="30"}
 
     [ -n "$ZBX_PASSIVESERVERS" ] && ZBX_PASSIVESERVERS=","$ZBX_PASSIVESERVERS
 
