@@ -81,7 +81,7 @@ RUN chmod -w /etc/sudoers
 
 #bnowakow
 RUN apt-get update
-RUN apt-get install git -y
+RUN apt-get install git jq -y
 # https://docs.docker.com/engine/install/ubuntu/
 RUN apt-get install ca-certificates curl gnupg lsb-release -y
 RUN mkdir -p /etc/apt/keyrings
