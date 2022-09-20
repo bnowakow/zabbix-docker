@@ -220,6 +220,8 @@ fi
 #bnowakow
 cd /etc/zabbix/zabbix_agentd.d/bash_configs
 git pull
+cd ..
+find . -name 'zabbix*.conf' | xargs -I{} cp {} .
 #\bnowakow
 
 exec "$@"

@@ -373,7 +373,10 @@ services:
    - ./zbx_env/var/lib/zabbix/modules:/var/lib/zabbix/modules:ro
    - ./zbx_env/var/lib/zabbix/enc:/var/lib/zabbix/enc:ro
    - ./zbx_env/var/lib/zabbix/ssh_keys:/var/lib/zabbix/ssh_keys:ro
-   - /:/mnt/host/root:ro
+   - /mnt/MargokPool/archive/:/mnt/MargokPool/archive/:ro
+   - /mnt/MargokPool/home/sup/:/mnt/MargokPool/home/sup/:ro
+   - /home/sup/:/home/sup/:ro
+   - /var/run/docker.sock:/var/run/docker.sock:ro
   deploy:
    resources:
     limits:
