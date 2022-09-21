@@ -328,6 +328,8 @@ create_db_schema_mysql() {
 update_zbx_config() {
     echo "** Preparing Zabbix server configuration file"
 
+    : ${ZBX_TIMEOUT:="30"}
+
     ZBX_CONFIG=$ZABBIX_ETC_DIR/zabbix_server.conf
 
     update_config_var $ZBX_CONFIG "ListenIP" "${ZBX_LISTENIP}"

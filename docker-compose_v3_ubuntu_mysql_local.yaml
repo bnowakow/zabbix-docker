@@ -1,3 +1,4 @@
+# https://mpolinowski.github.io/docs/DevOps/Zabbix/2020-07-15--zabbix-docker-installation/2020-07-15/
 version: '3.5'
 services:
  zabbix-build-base:
@@ -363,7 +364,6 @@ services:
   profiles:
    - full
    - all
-   - server
    - agent
   ports:
    - "10050:10050"
