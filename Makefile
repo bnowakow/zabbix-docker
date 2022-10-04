@@ -4,7 +4,7 @@
 #docker-compose-yaml-file := ./docker-compose_v3_ubuntu_mysql_latest.yaml
 docker-compose-yaml-file := ./docker-compose_v3_ubuntu_mysql_local.yaml
 
-zabbix-version := 6.2.2
+zabbix-version := 6.2.3
 
 server:
 	docker compose -f $(docker-compose-yaml-file) --profile server up -d
@@ -13,11 +13,11 @@ agent:
 	docker compose -f $(docker-compose-yaml-file) --profile agent up -d
 
 stop:
-	docker compose -f $(docker-compose-yaml-file) stop
+	docker compose -f $(docker-compose-yaml-file) --profile server stop
 
 destroy:
-	docker compose -f $(docker-compose-yaml-file) down
-	docker system prune -f
+	docker compose -f $(docker-compose-yaml-file) --profile server down
+	#docker system prune -f
 
 restart:
 	docker compose -f $(docker-compose-yaml-file) restart
